@@ -37,9 +37,36 @@ const fruit = new Fruit({
 const PersonSchema = new mongoose.Schema({
     name: String,
     age: Number,
+    //relation with fruit schema
+    favouriteFruit: fruitSchema,
 });
 
 const Person = mongoose.model('Person', PersonSchema);
+
+const mango = new Fruit({
+    name: 'mango',
+    rating: 10,
+    review: 'Great',
+});
+
+mango.save();
+
+// const amy = new Person({
+//     name: 'Amy',
+//     age: 12,
+//     favouriteFruit: pineapple,
+// });
+
+// amy.save();
+
+
+// Person.updateOne({name:"John"},{favouriteFruit:mango}, function(err){
+//     if(err){
+//         console.log(err);
+//     }else{
+//         console.log("Successfully updated John")
+//     }
+// })
 
 const person = new Person({
     name: 'John',
@@ -92,34 +119,34 @@ Fruit.find(function (err, fruits) {
 
 //update
 
-Fruit.updateOne(
-    { _id: '61026221dd1eb51fcc5de9aa' },
-    { name: 'Peaches' },
-    function (err) {
-        if (err) {
-            console.log(err);
-        } else {
-            console.log('Successfully update the document');
-        }
-    }
-);
+// Fruit.updateOne(
+//     { _id: '61026221dd1eb51fcc5de9aa' },
+//     { name: 'Peaches' },
+//     function (err) {
+//         if (err) {
+//             console.log(err);
+//         } else {
+//             console.log('Successfully update the document');
+//         }
+//     }
+// );
 
-//delete one
+// //delete one
 
-Fruit.deleteOne({ name: 'peaches' }, function (err) {
-    if (err) {
-        console.log(err);
-    } else {
-        console.log('Successfully deleted');
-    }
-});
+// Fruit.deleteOne({ name: 'peaches' }, function (err) {
+//     if (err) {
+//         console.log(err);
+//     } else {
+//         console.log('Successfully deleted');
+//     }
+// });
 
-//delete many
+// //delete many
 
-Person.deleteMany({ name: 'John' }, function (err) {
-    if (err) {
-        console.log(err);
-    } else {
-        console.log('Successfully deleted many elements');
-    }
-});
+// Person.deleteMany({ name: 'John' }, function (err) {
+//     if (err) {
+//         console.log(err);
+//     } else {
+//         console.log('Successfully deleted many elements');
+//     }
+// });
