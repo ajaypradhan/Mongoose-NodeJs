@@ -92,24 +92,24 @@ Fruit.find(function (err, fruits) {
 
 //update
 
-// Fruit.updateOne(
-//     { _id: '61026221dd1eb51fcc5de9aa' },
-//     { name: 'Peaches' },
-//     function (err) {
-//         if (err) {
-//             console.log(err);
-//         } else {
-//             console.log('Successfully update the document');
-//         }
-//     }
-// );
+Fruit.updateOne(
+    { _id: '61026221dd1eb51fcc5de9aa' },
+    { name: 'Peaches' },
+    function (err) {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log('Successfully update the document');
+        }
+    }
+);
 
 //delete
 
-// Fruit.deleteOne({ name: 'peaches' }, function (err) {
-//     if (err) {
-//         console.log(err);
-//     } else {
-//         console.log('Successfully deleted');
-//     }
-// });
+Fruit.deleteOne({ name: 'peaches' }, function (err) {
+    if (err) {
+        console.log(err);
+    } else {
+        console.log('Successfully deleted');
+    }
+});
