@@ -27,12 +27,12 @@ const fruitSchema = new mongoose.Schema({
 const Fruit = mongoose.model('Fruit', fruitSchema);
 
 const fruit = new Fruit({
-    name: 'peaches',
-    rating: 7,
+    // name: 'peaches',
+    rating: 10,
     review: 'Peaches are awesome',
 });
 
-fruit.save();
+// fruit.save();
 
 // const PersonSchema = new mongoose.Schema({
 //     name: String,
@@ -66,6 +66,8 @@ fruit.save();
 //     review: 'mast haa',
 // });
 
+//insert many
+
 // Fruit.insertMany([kiwi, orange, banana], function (err) {
 //     if (err) {
 //         console.log(err);
@@ -73,6 +75,8 @@ fruit.save();
 //         console.log('Successfully added to the DB');
 //     }
 // });
+
+//find
 
 Fruit.find(function (err, fruits) {
     if (err) {
@@ -85,3 +89,27 @@ Fruit.find(function (err, fruits) {
         });
     }
 });
+
+//update
+
+// Fruit.updateOne(
+//     { _id: '61026221dd1eb51fcc5de9aa' },
+//     { name: 'Peaches' },
+//     function (err) {
+//         if (err) {
+//             console.log(err);
+//         } else {
+//             console.log('Successfully update the document');
+//         }
+//     }
+// );
+
+//delete
+
+// Fruit.deleteOne({ name: 'peaches' }, function (err) {
+//     if (err) {
+//         console.log(err);
+//     } else {
+//         console.log('Successfully deleted');
+//     }
+// });
