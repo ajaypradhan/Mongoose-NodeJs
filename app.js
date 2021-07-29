@@ -34,17 +34,17 @@ const fruit = new Fruit({
 
 // fruit.save();
 
-// const PersonSchema = new mongoose.Schema({
-//     name: String,
-//     age: Number,
-// });
+const PersonSchema = new mongoose.Schema({
+    name: String,
+    age: Number,
+});
 
-// const Person = mongoose.model('Person', PersonSchema);
+const Person = mongoose.model('Person', PersonSchema);
 
-// const person = new Person({
-//     name: 'John',
-//     age: 37,
-// });
+const person = new Person({
+    name: 'John',
+    age: 37,
+});
 
 // person.save();
 
@@ -104,12 +104,22 @@ Fruit.updateOne(
     }
 );
 
-//delete
+//delete one
 
 Fruit.deleteOne({ name: 'peaches' }, function (err) {
     if (err) {
         console.log(err);
     } else {
         console.log('Successfully deleted');
+    }
+});
+
+//delete many
+
+Person.deleteMany({ name: 'John' }, function (err) {
+    if (err) {
+        console.log(err);
+    } else {
+        console.log('Successfully deleted many elements');
     }
 });
