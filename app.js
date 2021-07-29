@@ -8,52 +8,63 @@ mongoose.connect('mongodb://localhost:27017/fruitsDB', {
 //schema for new collection
 
 const fruitSchema = new mongoose.Schema({
-    name: String,
-    rating: Number,
+    // name: String,
+    // for validation
+    name: {
+        type: String,
+        required: [true, 'Please check our data entry , no name found'],
+    },
+    // rating: Number,
+    // for validation
+    rating: {
+        type: Number,
+        min: 1,
+        max: 10,
+    },
     review: String,
 });
 
 const Fruit = mongoose.model('Fruit', fruitSchema);
 
 const fruit = new Fruit({
-    name: 'Apple',
+    name: 'peaches',
     rating: 7,
-    review: 'Pretty Solid as fruit',
+    review: 'Peaches are awesome',
 });
 
-// fruit.save();
+fruit.save();
 
-const PersonSchema = new mongoose.Schema({
-    name: String,
-    age: Number,
-});
+// const PersonSchema = new mongoose.Schema({
+//     name: String,
+//     age: Number,
+// });
 
-const Person = mongoose.model('Person', PersonSchema);
+// const Person = mongoose.model('Person', PersonSchema);
 
-const person = new Person({
-    name: 'John',
-    age: 37,
-});
+// const person = new Person({
+//     name: 'John',
+//     age: 37,
+// });
 
 // person.save();
 
-const kiwi = new Fruit({
-    name: 'Kiwi',
-    rating: 10,
-    review: 'The best fruit',
-});
+// const kiwi = new Fruit({
+//     name: 'Kiwi',
+//     rating: 10,
+//     review: 'The best fruit',
+// });
 
-const orange = new Fruit({
-    name: 'Orange',
-    rating: 4,
-    review: 'Too sour',
-});
+// const orange = new Fruit({
+//     name: 'Orange',
+//     rating: 4,
+//     review: 'Too sour',
+// });
 
-const banana = new Fruit({
-    name: 'Banana',
-    rating: 9,
-    review: 'mast haa',
-});
+// const banana = new Fruit({
+//     name: 'Banana',
+//     rating: 9,
+//     review: 'mast haa',
+// });
 
 // Fruit.insertMany([kiwi, orange, banana], function (err) {
 //     if (err) {
